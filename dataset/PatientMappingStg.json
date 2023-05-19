@@ -1,0 +1,50 @@
+{
+	"name": "PatientMappingStg",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "KlsAzureSqlLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "MRN",
+				"type": "varchar"
+			},
+			{
+				"name": "File",
+				"type": "varchar"
+			},
+			{
+				"name": "Mother_Admit_Tm",
+				"type": "varchar"
+			},
+			{
+				"name": "DELIVERY_TIME",
+				"type": "varchar"
+			},
+			{
+				"name": "GUID",
+				"type": "varchar"
+			},
+			{
+				"name": "INPATIENT_DATA_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "filename",
+				"type": "varchar"
+			},
+			{
+				"name": "m_ExecutionDt",
+				"type": "datetime2",
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "stg",
+			"table": "tPatientMapping"
+		}
+	}
+}

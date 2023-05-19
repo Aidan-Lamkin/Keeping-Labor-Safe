@@ -1,0 +1,41 @@
+﻿/* Output table to store case outcome data after analysis */
+
+CREATE TABLE [dbo].[tKlsCaseOutcome] (
+    [CaseID]                    INT            NOT NULL,
+    [Apgar1]                    INT            NULL,
+    [Apgar1DateTime]            DATETIME2 (2)  NULL,
+    [Apgar5]                    INT            NULL,
+    [Apgar5DateTime]            DATETIME2 (2)  NULL,
+    [Apgar10]                   INT            NULL,
+    [Apgar10DateTime]           DATETIME2 (2)  NULL,
+    [CordPh]                    DECIMAL (6, 2) NULL,
+    [CordPhDateTime]            DATETIME2 (2)  NULL,
+    [CordPO2]                   DECIMAL (6, 2) NULL,
+    [CordPO2DateTime]           DATETIME2 (2)  NULL,
+    [CordBE]                    DECIMAL (6, 2) NULL,
+    [CordBEDateTime]            DATETIME2 (2)  NULL,
+    [Weight]                    DECIMAL (6, 2) NULL,
+    [WeightDateTime]            DATETIME2 (2)  NULL,
+    [NicuIntubation]            VARCHAR (128)  NULL,
+    [NicuIntubationDateTime]    DATETIME2 (2)  NULL,
+    [DeliveryCSection]          VARCHAR (128)  NULL,
+    [DeliveryCSectionDateTime]  DATETIME2 (2)  NULL,
+    [DeliveryNsvd]              VARCHAR (128)  NULL,
+    [DeliveryNsvdDateTime]      DATETIME2 (2)  NULL,
+    [DeliveryForceps]           VARCHAR (128)  NULL,
+    [DeliveryForcepsDateTime]   DATETIME2 (2)  NULL,
+    [DeliveryVacuum]            VARCHAR (128)  NULL,
+    [DeliveryVacuumDateTime]    DATETIME2 (2)  NULL,
+    [DeliveryEmergency]         VARCHAR (128)  NULL,
+    [DeliveryEmergencyDateTime] DATETIME2 (2)  NULL,
+    [LowFRI]                    DECIMAL (6, 3) NULL,
+    [HrsLowFRI]                 DECIMAL (6, 3) NULL,
+    [LastFRI]                   DECIMAL (6, 3) NULL,
+    [HrsLastFRI]                DECIMAL (6, 3) NULL,
+    [FRIPriorStage2]            DECIMAL (6, 3) NULL,
+    [HrsStage2]                 DECIMAL (6, 3) NULL,
+    [m_ExecutionDt]             DATETIME2 (0)  DEFAULT (getutcdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CaseID] ASC)
+);
+
+

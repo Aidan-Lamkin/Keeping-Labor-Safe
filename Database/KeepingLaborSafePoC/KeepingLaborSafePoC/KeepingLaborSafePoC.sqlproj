@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>KeepingLaborSafePoC</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{178a09f9-1747-4c47-b17d-2e181053e5d3}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>KeepingLaborSafePoC</RootNamespace>
+    <AssemblyName>KeepingLaborSafePoC</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="stg\" />
+    <Folder Include="stg\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="ref\" />
+    <Folder Include="ref\Tables\" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Initialization" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="stg\Stored Procedures\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="stg\Views\" />
+    <Folder Include="app\" />
+    <Folder Include="app\Tables\" />
+    <Folder Include="ana\" />
+    <Folder Include="ana\Tables\" />
+    <Folder Include="ana\Stored Procedures\" />
+    <Folder Include="cfg\" />
+    <Folder Include="cfg\Tables\" />
+    <Folder Include="ana\Functions\" />
+    <Folder Include="ana\User Defined Types\" />
+    <Folder Include="dep\" />
+    <Folder Include="dep\Stored Procedures\" />
+    <Folder Include="app\Views\" />
+    <Folder Include="ana\Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="stg\Tables\tKlsInput.sql" />
+    <Build Include="Security\stg.sql" />
+    <Build Include="dbo\Tables\tKlsSampleData.sql" />
+    <Build Include="ref\Tables\tMetric.sql" />
+    <Build Include="Security\ref.sql" />
+    <Build Include="ref\Tables\tMetricSource.sql" />
+    <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
+    <Build Include="ref\Tables\tMetricUnit.sql" />
+    <Build Include="dbo\Views\vwTransformKlsSampleData.sql" />
+    <Build Include="dbo\Tables\tKlsCase.sql" />
+    <Build Include="stg\Views\vwKlsInput.sql" />
+    <Build Include="dbo\Views\vwKlsSample.sql" />
+    <Build Include="app\Tables\tKlsSample_Pivot.sql" />
+    <Build Include="app\Tables\tKlsSample.sql" />
+    <Build Include="dbo\Stored Procedures\uspStoreKlsSamplePivotByCase.sql" />
+    <Build Include="dbo\Stored Procedures\uspStoreKlsSamplePivotAllCases.sql" />
+    <Build Include="Security\app.sql" />
+    <Build Include="ana\Tables\tKlsFrame10Min.sql" />
+    <Build Include="ana\Stored Procedures\uspStoreKlsFrame10Min.sql" />
+    <Build Include="Security\ana.sql" />
+    <Build Include="cfg\Tables\tFRIVariable.sql" />
+    <Build Include="ana\Functions\usfCalculateFRI.sql" />
+    <Build Include="ana\Stored Procedures\uspCalculateFRIByCaseFrame.sql" />
+    <Build Include="ana\User Defined Types\TypeFRIVariableTable.sql" />
+    <Build Include="Security\cfg.sql" />
+    <Build Include="dbo\Tables\ana.KlsStripDetails.sql" />
+    <Build Include="ana\Stored Procedures\uspStoreKlsFrame10MinByCaseID.sql" />
+    <Build Include="ana\Stored Procedures\uspCalculateFRIFramesByCaseID.sql" />
+    <Build Include="ana\Stored Procedures\uspCalculateFRIAllCases.sql" />
+    <Build Include="ana\Stored Procedures\uspSelectCaseDataByCaseID.sql" />
+    <Build Include="ana\Stored Procedures\uspSelectAdditionalMetrics.sql" />
+    <Build Include="ref\Tables\tTimePeriodGroup.sql" />
+    <Build Include="ref\Tables\tTimePeriod.sql" />
+    <Build Include="ref\Tables\tMilestone.sql" />
+    <Build Include="ref\Tables\tRiskFactorGroup.sql" />
+    <Build Include="ref\Tables\tRiskFactor.sql" />
+    <Build Include="ref\Tables\tRiskFactorType.sql" />
+    <Build Include="dbo\Tables\tKlsCaseMilestone.sql" />
+    <Build Include="dbo\Tables\tKlsCaseOutcome.sql" />
+    <Build Include="dbo\Tables\tKlsCaseAdditionalMetrics.sql" />
+    <Build Include="ana\Stored Procedures\uspStoreAdditionalMetricsAllCases.sql" />
+    <Build Include="ana\Stored Procedures\uspStoreAdditionalMetrics.sql" />
+    <Build Include="ana\Stored Procedures\uspStoreKlsFrame10MinAllCases.sql" />
+    <Build Include="stg\Tables\tKlsInputDataflow.sql" />
+    <Build Include="dbo\Tables\tRiskFactorData.sql" />
+    <Build Include="dbo\Tables\tPatientMapping.sql" />
+    <Build Include="stg\Views\vwKlsInputDataflow.sql" />
+    <Build Include="dbo\Stored Procedures\uspStoreKlsSampleDataDataflow.sql" />
+    <Build Include="dbo\Tables\tRiskFactorDiagnoses.sql" />
+    <Build Include="dbo\Tables\tFlowsheets.sql" />
+    <Build Include="stg\Views\vwRiskFactorFlowsheets.sql" />
+    <Build Include="stg\Views\vwRiskFactorDiagnoses.sql" />
+    <Build Include="stg\Views\vwRiskFactorData.sql" />
+    <Build Include="dbo\Views\vwRiskFactors.sql" />
+    <Build Include="dbo\Views\vwAllRiskFactors.sql" />
+    <Build Include="ana\Stored Procedures\uspUpdateAllRiskFactors.sql" />
+    <Build Include="ana\Stored Procedures\uspSelectBitRiskFactors.sql" />
+    <Build Include="ana\Stored Procedures\uspSelectAllRiskFactorsByCaseID.sql" />
+    <Build Include="ana\Stored Procedures\uspSelectAllRiskFactors.sql" />
+    <Build Include="stg\Stored Procedures\uspTruncateSampleDataStgTableDataflow.sql" />
+    <Build Include="ana\Stored Procedures\uspCalculateDataQualityByCaseID.sql" />
+    <Build Include="ana\Stored Procedures\uspCalculateDataQualityAllCases.sql" />
+    <Build Include="stg\Tables\tPatientMapping.sql" />
+    <Build Include="stg\Views\vwPatientMapping.sql" />
+    <Build Include="dbo\Views\vwCaseMilestones.sql" />
+    <Build Include="stg\Stored Procedures\uspTruncatePatientMappingStage.sql" />
+    <Build Include="dbo\Stored Procedures\uspMergePatientMapping.sql" />
+    <Build Include="ana\Stored Procedures\uspStoreCaseMilestones.sql" />
+    <Build Include="dep\Stored Procedures\uspTruncateSampleDataStgTable.sql" />
+    <Build Include="dep\Stored Procedures\uspStoreKlsCasePostProcess.sql" />
+    <Build Include="dep\Stored Procedures\uspStoreKlsSampleData.sql" />
+    <Build Include="Security\dep.sql" />
+    <Build Include="dbo\Tables\GroundTruth.sql" />
+    <Build Include="ana\Tables\tEvaluationResults.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetNullStatsForTable.sql" />
+    <Build Include="app\Views\vwSamplePivot.sql" />
+    <Build Include="ana\Views\vwKlsEmrCaseOutcome.sql" />
+    <Build Include="dbo\Views\vwKlsSampleData.sql" />
+    <Build Include="app\Views\vwSample_Pivot.sql" />
+    <Build Include="dep\Stored Procedures\uspStoreKlsSampleByCase.sql" />
+    <Build Include="dep\Stored Procedures\uspStoreKlsSampleAllCases.sql" />
+    <Build Include="dep\Stored Procedures\uspStoreKlsCasePostProcessDataflow.sql" />
+    <Build Include="dbo\Stored Procedures\uspStoreKlsSamplePivotByCase_Merge.sql" />
+    <Build Include="dbo\Stored Procedures\uspEndProcess.sql" />
+    <Build Include="dbo\Views\vwEmrStatsPivot.sql" />
+    <Build Include="dbo\Views\vwEmrStats.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Initialization\InitializeMetric.sql" />
+    <None Include="Scripts\Initialization\InitializeMetricSource.sql" />
+    <None Include="Scripts\Initialization\InitializeMetricUnit.sql" />
+    <None Include="Scripts\Initialization\InitializeFRIVariable.sql" />
+    <None Include="Scripts\Initialization\InitializeMilestone.sql" />
+    <None Include="Scripts\Initialization\InitializeTimePeriodGroup.sql" />
+    <None Include="Scripts\Initialization\InitializeTimePeriod.sql" />
+    <None Include="Scripts\Initialization\InitializeRiskFactor.sql" />
+    <None Include="Scripts\Initialization\InitializeRiskFactorGroup.sql" />
+    <None Include="Scripts\Initialization\InitializeRiskFactorType.sql" />
+  </ItemGroup>
+</Project>

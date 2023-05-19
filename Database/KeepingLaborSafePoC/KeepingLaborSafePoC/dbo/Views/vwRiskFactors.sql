@@ -1,0 +1,110 @@
+﻿
+CREATE VIEW [dbo].[vwRiskFactors]
+AS
+
+	SELECT DISTINCT INPATIENT_DATA_ID
+		 , CASE WHEN RiskFactorKey LIKE 'MATERNAL%' THEN 1 WHEN RiskFactorKey LIKE 'FETAL%' THEN 3 WHEN RiskFactorKey LIKE 'OBSTETRIC%' THEN 2 ELSE 0 END AS RiskFactorGroupID
+		 , RiskFactorKey
+		 , RiskFactorValue
+	FROM stg.vwRiskFactorData t
+	UNPIVOT
+	(
+		[RiskFactorValue] 
+		FOR RiskFactorKey IN (
+							   [MATERNAL_RF_AGE]
+							  ,[MATERNAL_RF_AGE_D]
+							  ,[MATERNAL_RF_GRAVIDA]
+							  ,[MATERNAL_RF_PARITY]
+							  ,[MATERNAL_RF_GEST_AGE]
+							  ,[MATERNAL_RF_GEST_AGE_DT]
+							  ,[MATERNAL_RF_EST_DELIVERY_DT]
+							  ,[MATERNAL_RF_EPIDURAL]
+							  ,[OBSTETRICAL_RF_AROM]
+							  ,[OBSTETRICAL_RF_AROM_DT]
+							  ,[OBSTETRICAL_RF_PROM]
+							  ,[OBSTETRICAL_RF_PROM_DT]
+							  ,[OBSTETRICAL_RF_SROM]
+							  ,[OBSTETRICAL_RF_SROM_DT]
+							  ,[OBSTETRICAL_RF_PREV_C_SECTION]
+							  ,[FETAL_RF_PREMIE]
+							  ,[FETAL_RF_SECOND_STAGE]
+							  ,[FETAL_RF_SECOND_STAGE_DT]
+							  ,[MATERNAL_RF_SHORT_STATURE]
+							  ,[MATERNAL_RF_OBESITY]
+							  ,[MATERNAL_RF_OBESITY_DT]
+							  ,[FETAL_RF_MECONIUM]
+							  ,[FETAL_RF_MECONIUM_DT]
+							  ,[OBSTETRICAL_RF_OLI_GOHYDRAMNIOS]
+							  ,[OBSTETRICAL_RF_OLI_GOHYDRAMNIOS_DT]
+							  ,[OBSTETRICAL_RF_POLY_HYDRAMNIOS]
+							  ,[OBSTETRICAL_RF_POLY_HYDRAMNIOS_DT]
+							  ,[OBSTETRICAL_RF_PROTRACTION]
+							  ,[OBSTETRICAL_RF_PROTRACTION_DT]
+							  ,[OBSTETRICAL_RF_MAL_PRESENTATION])
+	) upvt
+
+	UNION 
+	SELECT DISTINCT INPATIENT_DATA_ID
+		 , CASE WHEN RiskFactorKey LIKE 'MATERNAL%' THEN 1 WHEN RiskFactorKey LIKE 'FETAL%' THEN 3 WHEN RiskFactorKey LIKE 'OBSTETRIC%' THEN 2 ELSE 0 END AS RiskFactorGroupID
+		 , RiskFactorKey
+		 , RiskFactorValue
+	FROM stg.vwRiskFactorDiagnoses t
+	UNPIVOT
+	(
+		[RiskFactorValue] 
+		FOR RiskFactorKey IN (
+							  [MATERNAL_RF_DIABETES]				
+							  ,[MATERNAL_RF_DIABETES_DT]			        			
+							  ,[MATERNAL_RF_HTN_PRE_E]			
+							  ,[MATERNAL_RF_HTN_PRE_E_DT]			
+							  ,[MATERNAL_RF_PULMONARY]			
+							  ,[MATERNAL_RF_PULMONARY_DT]			
+							  ,[MATERNAL_RF_CARDIAC]				
+							  ,[MATERNAL_RF_CARDIAC_DT]			
+							  ,[OBSTETRICAL_RF_ARREST]			
+							  ,[OBSTETRICAL_RF_ARREST_DT]			
+							  ,[OBSTETRICAL_RF_MACROSOMIA_LGA]	
+							  ,[OBSTETRICAL_RF_MACROSOMIA_LGA_DT]	
+							  ,[OBSTETRICAL_RF_OLI_GOHYDRAMNIOS]	
+							  ,[OBSTETRICAL_RF_OLI_GOHYDRAMNIOS_DT]
+							  ,[OBSTETRICAL_RF_POLY_HYDRAMNIOS]	
+							  ,[OBSTETRICAL_RF_POLY_HYDRAMNIOS_DT]
+							  ,[OBSTETRICAL_RF_PREV_C_SECTION]	
+							  ,[OBSTETRICAL_RF_PREV_C_SECTION_DT]	
+							  ,[OBSTETRICAL_RF_PROTRACTION]		
+							  ,[OBSTETRICAL_RF_PROTRACTION_DT]	
+							  ,[OBSTETRICAL_RF_PROM]				
+							  ,[OBSTETRICAL_RF_PROM_DT]			
+							  ,[OBSTETRICAL_RF_SROM]				
+							  ,[OBSTETRICAL_RF_SROM_DT]			
+							  ,[OBSTETRICAL_RF_AROM]				
+							  ,[OBSTETRICAL_RF_AROM_DT]			
+							  ,[OBSTETRICAL_RF_BLEEDING]			
+							  ,[FETAL_RF_ARRYTHMIA]				
+							  ,[FETAL_RF_ARRYTHMIA_DT]			
+							  ,[FETAL_RF_TERMINAL_BRADYCARDIA]	
+							  ,[FETAL_RF_TERMINAL_BRADYCARDIA_DT]	
+							  ,[FETAL_RF_IUGR]					
+							  ,[FETAL_RF_IUGR_DT]					
+							  ,[MATERNAL_RF_CARDIAC1]				
+							  ,[MATERNAL_RF_CARDIAC_DT1]			
+							  ,[MATERNAL_RF_PULMONARY1]			
+							  ,[MATERNAL_RF_PULMONARY_DT1]		)
+							  
+
+	) upvt2
+
+	UNION
+	SELECT DISTINCT INPATIENT_DATA_ID
+		 , CASE WHEN RiskFactorKey LIKE 'MATERNAL%' THEN 1 WHEN RiskFactorKey LIKE 'FETAL%' THEN 3 WHEN RiskFactorKey LIKE 'OBSTETRIC%' THEN 2 ELSE 0 END AS RiskFactorGroupID
+		 , RiskFactorKey
+		 , RiskFactorValue
+	FROM stg.vwRiskFactorFlowsheets t
+	UNPIVOT
+	(
+		[RiskFactorValue] 
+		FOR RiskFactorKey IN (
+							   MATERNAL_RF_EPIDURAL_DT
+							  ,FETAL_RF_INTRAUTERINE_RESUSCITATION_DT
+							  ,FETAL_RF_INTRAUTERINE_RESUSCITATION )
+	) upvt3

@@ -1,0 +1,994 @@
+{
+	"name": "klssamplestagingtable_dataflow",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "KlsAzureSqlLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Prop_0",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_1",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_2",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_3",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_4",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_5",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_6",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_7",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_8",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_9",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_10",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_11",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_12",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_13",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_14",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_15",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_16",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_17",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_18",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_19",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_20",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_21",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_22",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_23",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_24",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_25",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_26",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_27",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_28",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_29",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_30",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_31",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_32",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_33",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_34",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_35",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_36",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_37",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_38",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_39",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_40",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_41",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_42",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_43",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_44",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_45",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_46",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_47",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_48",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_49",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_50",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_51",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_52",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_53",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_54",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_55",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_56",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_57",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_58",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_59",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_60",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_61",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_62",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_63",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_64",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_65",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_66",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_67",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_68",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_69",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_70",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_71",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_72",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_73",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_74",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_75",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_76",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_77",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_78",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_79",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_80",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_81",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_82",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_83",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_84",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_85",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_86",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_87",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_88",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_89",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_90",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_91",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_92",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_93",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_94",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_95",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_96",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_97",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_98",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_99",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_100",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_101",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_102",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_103",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_104",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_105",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_106",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_107",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_108",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_109",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_110",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_111",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_112",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_113",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_114",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_115",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_116",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_117",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_118",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_119",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_120",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_121",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_122",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_123",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_124",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_125",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_126",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_127",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_128",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_129",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_130",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_131",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_132",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_133",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_134",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_135",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_136",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_137",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_138",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_139",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_140",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_141",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_142",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_143",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_144",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_145",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_146",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_147",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_148",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_149",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_150",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_151",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_152",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_153",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_154",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_155",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_156",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_157",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_158",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_159",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_160",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_161",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_162",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_163",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_164",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_165",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_166",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_167",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_168",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_169",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_170",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_171",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_172",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_173",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_174",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_175",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_176",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_177",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_178",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_179",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_180",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_181",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_182",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_183",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_184",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_185",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_186",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_187",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_188",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_189",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_190",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_191",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_192",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_193",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_194",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_195",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_196",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_197",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_198",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_199",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_200",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_201",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_202",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_203",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_204",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_205",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_206",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_207",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_208",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_209",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_210",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_211",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_212",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_213",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_214",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_215",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_216",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_217",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_218",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_219",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_220",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_221",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_222",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_223",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_224",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_225",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_226",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_227",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_228",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_229",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_230",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_231",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_232",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_233",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_234",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_235",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_236",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_237",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_238",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_239",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_240",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_241",
+				"type": "varchar"
+			},
+			{
+				"name": "Prop_242",
+				"type": "varchar"
+			},
+			{
+				"name": "m_ExecutionDt",
+				"type": "datetimeoffset",
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"tableName": "stg.tKlsInputDataflow"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

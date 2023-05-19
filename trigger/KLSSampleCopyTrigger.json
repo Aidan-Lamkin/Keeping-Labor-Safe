@@ -1,0 +1,17 @@
+{
+	"name": "KLSSampleCopyTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2018-09-05T17:38:45.866Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

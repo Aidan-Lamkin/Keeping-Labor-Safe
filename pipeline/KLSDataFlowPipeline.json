@@ -1,0 +1,546 @@
+{
+	"name": "KLSDataFlowPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "If Files Exist in Drop",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "For Each File",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(variables('ProcessFiles'), true)",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "Store Sample Data",
+							"description": "Stores new raw input data from staging table into destination raw data table",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "Execute KLSDataFlow",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[uspStoreKlsSampleDataDataflow]"
+							},
+							"linkedServiceName": {
+								"referenceName": "KlsAzureSqlLinkedService",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "Process App Sample Pivot Data",
+							"description": "Transforms input tracing data into a pivoted form that can be read by scoring application and visuals",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "Store 10-Minute Frames",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[uspStoreKlsSamplePivotAllCases]",
+								"storedProcedureParameters": {
+									"IsRedigestion": {
+										"value": "0",
+										"type": "int"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "KlsAzureSqlLinkedService",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "Store 10-Minute Frames",
+							"description": "Stores empty 10-minute frame segments based on Admit/Delivery time for each case. These will be filled out in future scoring and Risk Factor calculations/updates",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "Store Sample Data",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[ana].[uspStoreKlsFrame10MinAllCases]",
+								"storedProcedureParameters": {
+									"IsRedigestion": {
+										"value": "0",
+										"type": "int"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "KlsAzureSqlLinkedService",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "Update Risk Factors",
+							"description": "Calls stored procedure to update risk factors for patients based on patient mapping and EMR data (presumed to be already loaded)",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "Process App Sample Pivot Data",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[ana].[uspUpdateAllRiskFactors]"
+							},
+							"linkedServiceName": {
+								"referenceName": "KlsAzureSqlLinkedService",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "Calculate Data Quality flags",
+							"description": "Calls stored procedure to update data quality flag on case frames based on pivot data.",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "Update Risk Factors",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[ana].[uspCalculateDataQualityAllCases]",
+								"storedProcedureParameters": {
+									"IsRedigestion": {
+										"value": "0",
+										"type": "int"
+									},
+									"QualityPercentage": {
+										"value": {
+											"value": "@pipeline().parameters.QualityCheckPercentage",
+											"type": "Expression"
+										},
+										"type": "Decimal"
+									},
+									"MaxSampleCount": {
+										"value": {
+											"value": "@pipeline().parameters.MaxSampleCount",
+											"type": "Expression"
+										},
+										"type": "Int32"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "KlsAzureSqlLinkedService",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "Execute KLSDataFlow",
+							"description": "Executes a DataFlow job that pulls in all new input data from file drop in blob storage",
+							"type": "ExecuteDataFlow",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataflow": {
+									"referenceName": "KLSDataFlow",
+									"type": "DataFlowReference"
+								},
+								"compute": {
+									"coreCount": 8,
+									"computeType": "General"
+								}
+							}
+						},
+						{
+							"name": "End Processing",
+							"description": "Calls stored procedure to update case table and mark all enabled cases as disabled.",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "Calculate Data Quality flags",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "dbo.uspEndProcess"
+							},
+							"linkedServiceName": {
+								"referenceName": "KlsAzureSqlLinkedService",
+								"type": "LinkedServiceReference"
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "Get File Drop Metadata",
+				"type": "GetMetadata",
+				"dependsOn": [
+					{
+						"activity": "ArchiveBlobs",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "klssampleinputdata",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"childItems"
+					]
+				}
+			},
+			{
+				"name": "For Each File",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Get File Drop Metadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get File Drop Metadata').output.childitems",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "If csv file exists",
+							"type": "IfCondition",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@and(equals(variables('ProcessFiles'), false), contains(item().Name, '.csv'))",
+									"type": "Expression"
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Set FileProcess variable to true",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "ProcessFiles",
+											"value": true
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "Copy Patient Mapping Data to Stage",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Truncate Patient Mapping Stg",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.txt",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MRN",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MRN",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "File",
+									"type": "String"
+								},
+								"sink": {
+									"name": "File",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Mother_Admit_Tm",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Mother_Admit_Tm",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DELIVERY_TIME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DELIVERY_TIME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "GUID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "GUID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INPATIENT_DATA_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INPATIENT_DATA_ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "<RENAME TO> INPATIENT_DATA_ID plus *csv filename",
+									"type": "String"
+								},
+								"sink": {
+									"name": "filename",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PatientMappingTxt",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PatientMappingStg",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "ArchiveBlobs",
+				"description": "{}",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Merge dbo patient mapping",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-48.eastus.logic.azure.com:443/workflows/8059631f50b74181bf98c0bf693bb37f/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ock-GVCBpbbiKFPpQtls-YEaSkFPMM_FoAGfV88C7q8",
+					"method": "POST",
+					"body": {
+						"value": "@concat('{', '}')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Truncate Patient Mapping Stg",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[stg].[uspTruncatePatientMappingStage]"
+				},
+				"linkedServiceName": {
+					"referenceName": "KlsAzureSqlLinkedService",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Merge dbo patient mapping",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copy Patient Mapping Data to Stage",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[uspMergePatientMapping]"
+				},
+				"linkedServiceName": {
+					"referenceName": "KlsAzureSqlLinkedService",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"QualityCheckPercentage": {
+				"type": "float",
+				"defaultValue": 0.95
+			},
+			"MaxSampleCount": {
+				"type": "int",
+				"defaultValue": 2400
+			}
+		},
+		"variables": {
+			"ProcessFiles": {
+				"type": "Boolean"
+			}
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

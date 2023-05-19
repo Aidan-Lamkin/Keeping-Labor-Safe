@@ -1,0 +1,475 @@
+{
+	"name": "Deprecated_KLSDataPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "CopyInputDataToStg",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "TruncateStgTable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Prop_0": "Prop_0",
+							"Prop_1": "Prop_1",
+							"Prop_2": "Prop_2",
+							"Prop_3": "Prop_3",
+							"Prop_4": "Prop_4",
+							"Prop_5": "Prop_5",
+							"Prop_6": "Prop_6",
+							"Prop_7": "Prop_7",
+							"Prop_8": "Prop_8",
+							"Prop_9": "Prop_9",
+							"Prop_10": "Prop_10",
+							"Prop_11": "Prop_11",
+							"Prop_12": "Prop_12",
+							"Prop_13": "Prop_13",
+							"Prop_14": "Prop_14",
+							"Prop_15": "Prop_15",
+							"Prop_16": "Prop_16",
+							"Prop_17": "Prop_17",
+							"Prop_18": "Prop_18",
+							"Prop_19": "Prop_19",
+							"Prop_20": "Prop_20",
+							"Prop_21": "Prop_21",
+							"Prop_22": "Prop_22",
+							"Prop_23": "Prop_23",
+							"Prop_24": "Prop_24",
+							"Prop_25": "Prop_25",
+							"Prop_26": "Prop_26",
+							"Prop_27": "Prop_27",
+							"Prop_28": "Prop_28",
+							"Prop_29": "Prop_29",
+							"Prop_30": "Prop_30",
+							"Prop_31": "Prop_31",
+							"Prop_32": "Prop_32",
+							"Prop_33": "Prop_33",
+							"Prop_34": "Prop_34",
+							"Prop_35": "Prop_35",
+							"Prop_36": "Prop_36",
+							"Prop_37": "Prop_37",
+							"Prop_38": "Prop_38",
+							"Prop_39": "Prop_39",
+							"Prop_40": "Prop_40",
+							"Prop_41": "Prop_41",
+							"Prop_42": "Prop_42",
+							"Prop_43": "Prop_43",
+							"Prop_44": "Prop_44",
+							"Prop_45": "Prop_45",
+							"Prop_46": "Prop_46",
+							"Prop_47": "Prop_47",
+							"Prop_48": "Prop_48",
+							"Prop_49": "Prop_49",
+							"Prop_50": "Prop_50",
+							"Prop_51": "Prop_51",
+							"Prop_52": "Prop_52",
+							"Prop_53": "Prop_53",
+							"Prop_54": "Prop_54",
+							"Prop_55": "Prop_55",
+							"Prop_56": "Prop_56",
+							"Prop_57": "Prop_57",
+							"Prop_58": "Prop_58",
+							"Prop_59": "Prop_59",
+							"Prop_60": "Prop_60",
+							"Prop_61": "Prop_61",
+							"Prop_62": "Prop_62",
+							"Prop_63": "Prop_63",
+							"Prop_64": "Prop_64",
+							"Prop_65": "Prop_65",
+							"Prop_66": "Prop_66",
+							"Prop_67": "Prop_67",
+							"Prop_68": "Prop_68",
+							"Prop_69": "Prop_69",
+							"Prop_70": "Prop_70",
+							"Prop_71": "Prop_71",
+							"Prop_72": "Prop_72",
+							"Prop_73": "Prop_73",
+							"Prop_74": "Prop_74",
+							"Prop_75": "Prop_75",
+							"Prop_76": "Prop_76",
+							"Prop_77": "Prop_77",
+							"Prop_78": "Prop_78",
+							"Prop_79": "Prop_79",
+							"Prop_80": "Prop_80",
+							"Prop_81": "Prop_81",
+							"Prop_82": "Prop_82",
+							"Prop_83": "Prop_83",
+							"Prop_84": "Prop_84",
+							"Prop_85": "Prop_85",
+							"Prop_86": "Prop_86",
+							"Prop_87": "Prop_87",
+							"Prop_88": "Prop_88",
+							"Prop_89": "Prop_89",
+							"Prop_90": "Prop_90",
+							"Prop_91": "Prop_91",
+							"Prop_92": "Prop_92",
+							"Prop_93": "Prop_93",
+							"Prop_94": "Prop_94",
+							"Prop_95": "Prop_95",
+							"Prop_96": "Prop_96",
+							"Prop_97": "Prop_97",
+							"Prop_98": "Prop_98",
+							"Prop_99": "Prop_99",
+							"Prop_100": "Prop_100",
+							"Prop_101": "Prop_101",
+							"Prop_102": "Prop_102",
+							"Prop_103": "Prop_103",
+							"Prop_104": "Prop_104",
+							"Prop_105": "Prop_105",
+							"Prop_106": "Prop_106",
+							"Prop_107": "Prop_107",
+							"Prop_108": "Prop_108",
+							"Prop_109": "Prop_109",
+							"Prop_110": "Prop_110",
+							"Prop_111": "Prop_111",
+							"Prop_112": "Prop_112",
+							"Prop_113": "Prop_113",
+							"Prop_114": "Prop_114",
+							"Prop_115": "Prop_115",
+							"Prop_116": "Prop_116",
+							"Prop_117": "Prop_117",
+							"Prop_118": "Prop_118",
+							"Prop_119": "Prop_119",
+							"Prop_120": "Prop_120",
+							"Prop_121": "Prop_121",
+							"Prop_122": "Prop_122",
+							"Prop_123": "Prop_123",
+							"Prop_124": "Prop_124",
+							"Prop_125": "Prop_125",
+							"Prop_126": "Prop_126",
+							"Prop_127": "Prop_127",
+							"Prop_128": "Prop_128",
+							"Prop_129": "Prop_129",
+							"Prop_130": "Prop_130",
+							"Prop_131": "Prop_131",
+							"Prop_132": "Prop_132",
+							"Prop_133": "Prop_133",
+							"Prop_134": "Prop_134",
+							"Prop_135": "Prop_135",
+							"Prop_136": "Prop_136",
+							"Prop_137": "Prop_137",
+							"Prop_138": "Prop_138",
+							"Prop_139": "Prop_139",
+							"Prop_140": "Prop_140",
+							"Prop_141": "Prop_141",
+							"Prop_142": "Prop_142",
+							"Prop_143": "Prop_143",
+							"Prop_144": "Prop_144",
+							"Prop_145": "Prop_145",
+							"Prop_146": "Prop_146",
+							"Prop_147": "Prop_147",
+							"Prop_148": "Prop_148",
+							"Prop_149": "Prop_149",
+							"Prop_150": "Prop_150",
+							"Prop_151": "Prop_151",
+							"Prop_152": "Prop_152",
+							"Prop_153": "Prop_153",
+							"Prop_154": "Prop_154",
+							"Prop_155": "Prop_155",
+							"Prop_156": "Prop_156",
+							"Prop_157": "Prop_157",
+							"Prop_158": "Prop_158",
+							"Prop_159": "Prop_159",
+							"Prop_160": "Prop_160",
+							"Prop_161": "Prop_161",
+							"Prop_162": "Prop_162",
+							"Prop_163": "Prop_163",
+							"Prop_164": "Prop_164",
+							"Prop_165": "Prop_165",
+							"Prop_166": "Prop_166",
+							"Prop_167": "Prop_167",
+							"Prop_168": "Prop_168",
+							"Prop_169": "Prop_169",
+							"Prop_170": "Prop_170",
+							"Prop_171": "Prop_171",
+							"Prop_172": "Prop_172",
+							"Prop_173": "Prop_173",
+							"Prop_174": "Prop_174",
+							"Prop_175": "Prop_175",
+							"Prop_176": "Prop_176",
+							"Prop_177": "Prop_177",
+							"Prop_178": "Prop_178",
+							"Prop_179": "Prop_179",
+							"Prop_180": "Prop_180",
+							"Prop_181": "Prop_181",
+							"Prop_182": "Prop_182",
+							"Prop_183": "Prop_183",
+							"Prop_184": "Prop_184",
+							"Prop_185": "Prop_185",
+							"Prop_186": "Prop_186",
+							"Prop_187": "Prop_187",
+							"Prop_188": "Prop_188",
+							"Prop_189": "Prop_189",
+							"Prop_190": "Prop_190",
+							"Prop_191": "Prop_191",
+							"Prop_192": "Prop_192",
+							"Prop_193": "Prop_193",
+							"Prop_194": "Prop_194",
+							"Prop_195": "Prop_195",
+							"Prop_196": "Prop_196",
+							"Prop_197": "Prop_197",
+							"Prop_198": "Prop_198",
+							"Prop_199": "Prop_199",
+							"Prop_200": "Prop_200",
+							"Prop_201": "Prop_201",
+							"Prop_202": "Prop_202",
+							"Prop_203": "Prop_203",
+							"Prop_204": "Prop_204",
+							"Prop_205": "Prop_205",
+							"Prop_206": "Prop_206",
+							"Prop_207": "Prop_207",
+							"Prop_208": "Prop_208",
+							"Prop_209": "Prop_209",
+							"Prop_210": "Prop_210",
+							"Prop_211": "Prop_211",
+							"Prop_212": "Prop_212",
+							"Prop_213": "Prop_213",
+							"Prop_214": "Prop_214",
+							"Prop_215": "Prop_215",
+							"Prop_216": "Prop_216",
+							"Prop_217": "Prop_217",
+							"Prop_218": "Prop_218",
+							"Prop_219": "Prop_219",
+							"Prop_220": "Prop_220",
+							"Prop_221": "Prop_221",
+							"Prop_222": "Prop_222",
+							"Prop_223": "Prop_223",
+							"Prop_224": "Prop_224",
+							"Prop_225": "Prop_225",
+							"Prop_226": "Prop_226",
+							"Prop_227": "Prop_227",
+							"Prop_228": "Prop_228",
+							"Prop_229": "Prop_229",
+							"Prop_230": "Prop_230",
+							"Prop_231": "Prop_231",
+							"Prop_232": "Prop_232",
+							"Prop_233": "Prop_233",
+							"Prop_234": "Prop_234",
+							"Prop_235": "Prop_235",
+							"Prop_236": "Prop_236",
+							"Prop_237": "Prop_237",
+							"Prop_238": "Prop_238",
+							"Prop_239": "Prop_239",
+							"Prop_240": "Prop_240",
+							"Prop_241": "Prop_241",
+							"Prop_242": "Prop_242"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "klssampleinputdata",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "klssamplestagingtable",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "ArchiveBlobs",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "CopyInputDataToStg",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-48.eastus.logic.azure.com:443/workflows/8059631f50b74181bf98c0bf693bb37f/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ock-GVCBpbbiKFPpQtls-YEaSkFPMM_FoAGfV88C7q8",
+					"method": "POST",
+					"body": {
+						"value": "@concat('{', '}')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "TruncateStgTable",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[stg].[uspTruncateSampleDataStgTable]"
+				},
+				"linkedServiceName": {
+					"referenceName": "KlsAzureSqlLinkedService",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "StoreSampleData",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "ArchiveBlobs",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[uspStoreKlsSampleData]"
+				},
+				"linkedServiceName": {
+					"referenceName": "KlsAzureSqlLinkedService",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "ProcessAppSampleData",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "StoreSampleData",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[uspStoreKlsSampleAllCases]",
+					"storedProcedureParameters": {
+						"IsRedigestion": {
+							"value": "0",
+							"type": "int"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "KlsAzureSqlLinkedService",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "ProcessAppSamplePivotData",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "StoreKls10MinFrames",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[uspStoreKlsSamplePivotAllCases]",
+					"storedProcedureParameters": {
+						"IsRedigestion": {
+							"value": "0",
+							"type": "int"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "KlsAzureSqlLinkedService",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "StoreKls10MinFrames",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "ProcessAppSampleData",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[ana].[uspStoreKlsFrame10MinAllCases]",
+					"storedProcedureParameters": {
+						"IsRedigestion": {
+							"value": "0",
+							"type": "int"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "KlsAzureSqlLinkedService",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

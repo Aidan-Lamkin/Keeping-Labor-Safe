@@ -1,0 +1,1367 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20194.19.1010.1202                               -->
+<workbook source-build='2019.4.0 (20194.19.1010.1202)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='tKlsFrame10Min (ana.tKlsFrame10Min)+ (KeepingLaborSafePoC)' inline='true' name='federated.1ko9nz11vx7u6b102tjtj0vil2sx' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='fripoc.database.windows.net' name='sqlserver.0nq3v1a1bfm3uw164gy3i1vymuwy'>
+            <connection authentication='sqlserver' class='sqlserver' dbname='KeepingLaborSafePoC' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='fripoc.database.windows.net' username='sqladmin' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[tKlsFrame10Min].[CaseID]' />
+                <expression op='[tKlsSample_Pivot].[CaseID]' />
+              </expression>
+              <expression op='='>
+                <expression op='[tKlsFrame10Min].[CaseFrameSeqID]' />
+                <expression op='[tKlsSample_Pivot].[CaseFrameSeqID]' />
+              </expression>
+            </expression>
+          </clause>
+          <relation connection='sqlserver.0nq3v1a1bfm3uw164gy3i1vymuwy' name='tKlsFrame10Min' table='[ana].[tKlsFrame10Min]' type='table' />
+          <relation connection='sqlserver.0nq3v1a1bfm3uw164gy3i1vymuwy' name='tKlsSample_Pivot' table='[app].[tKlsSample_Pivot]' type='table' />
+        </relation>
+        <cols>
+          <map key='[AvgTimePerContractionSec]' value='[tKlsFrame10Min].[AvgTimePerContractionSec]' />
+          <map key='[CaseFrameSeqID (tKlsSample_Pivot)]' value='[tKlsSample_Pivot].[CaseFrameSeqID]' />
+          <map key='[CaseFrameSeqID]' value='[tKlsFrame10Min].[CaseFrameSeqID]' />
+          <map key='[CaseID (tKlsSample_Pivot)]' value='[tKlsSample_Pivot].[CaseID]' />
+          <map key='[CaseID]' value='[tKlsFrame10Min].[CaseID]' />
+          <map key='[Duration]' value='[tKlsFrame10Min].[Duration]' />
+          <map key='[FHRBaselineBPM]' value='[tKlsFrame10Min].[FHRBaselineBPM]' />
+          <map key='[FHRThreshold]' value='[tKlsFrame10Min].[FHRThreshold]' />
+          <map key='[FHRVariabilityBPM]' value='[tKlsFrame10Min].[FHRVariabilityBPM]' />
+          <map key='[FRIAccelerations]' value='[tKlsFrame10Min].[FRIAccelerations]' />
+          <map key='[FRIExcessiveUA]' value='[tKlsFrame10Min].[FRIExcessiveUA]' />
+          <map key='[FRIFetalRiskFactor]' value='[tKlsFrame10Min].[FRIFetalRiskFactor]' />
+          <map key='[FRIFhrBaseline]' value='[tKlsFrame10Min].[FRIFhrBaseline]' />
+          <map key='[FRIFhrVariability]' value='[tKlsFrame10Min].[FRIFhrVariability]' />
+          <map key='[FRILateRecovery]' value='[tKlsFrame10Min].[FRILateRecovery]' />
+          <map key='[FRIMaternalRiskFactor]' value='[tKlsFrame10Min].[FRIMaternalRiskFactor]' />
+          <map key='[FRIObstetricalRiskFactor]' value='[tKlsFrame10Min].[FRIObstetricalRiskFactor]' />
+          <map key='[FRI]' value='[tKlsFrame10Min].[FRI]' />
+          <map key='[FRI_Calculated]' value='[tKlsFrame10Min].[FRI_Calculated]' />
+          <map key='[FrameEndDateTime]' value='[tKlsFrame10Min].[FrameEndDateTime]' />
+          <map key='[FrameStartDateTime]' value='[tKlsFrame10Min].[FrameStartDateTime]' />
+          <map key='[HR2]' value='[tKlsSample_Pivot].[HR2]' />
+          <map key='[HR]' value='[tKlsSample_Pivot].[HR]' />
+          <map key='[Id]' value='[tKlsFrame10Min].[Id]' />
+          <map key='[IsQuality]' value='[tKlsFrame10Min].[IsQuality]' />
+          <map key='[MHR]' value='[tKlsSample_Pivot].[MHR]' />
+          <map key='[NumContractions]' value='[tKlsFrame10Min].[NumContractions]' />
+          <map key='[NumFHRAccelerations]' value='[tKlsFrame10Min].[NumFHRAccelerations]' />
+          <map key='[NumFHRLateRecovery]' value='[tKlsFrame10Min].[NumFHRLateRecovery]' />
+          <map key='[NumFHROvershoot]' value='[tKlsFrame10Min].[NumFHROvershoot]' />
+          <map key='[SampleDateTime]' value='[tKlsSample_Pivot].[SampleDateTime]' />
+          <map key='[SeqID]' value='[tKlsSample_Pivot].[SeqID]' />
+          <map key='[TotalTimeContractionSec]' value='[tKlsFrame10Min].[TotalTimeContractionSec]' />
+          <map key='[TotalTimeRelaxationSec]' value='[tKlsFrame10Min].[TotalTimeRelaxationSec]' />
+          <map key='[UABaseline]' value='[tKlsFrame10Min].[UABaseline]' />
+          <map key='[UAThreshold]' value='[tKlsFrame10Min].[UAThreshold]' />
+          <map key='[UA]' value='[tKlsSample_Pivot].[UA]' />
+          <map key='[URRatio]' value='[tKlsFrame10Min].[URRatio]' />
+          <map key='[bBradycardia]' value='[tKlsFrame10Min].[bBradycardia]' />
+          <map key='[bFetalRiskFactor]' value='[tKlsFrame10Min].[bFetalRiskFactor]' />
+          <map key='[bMaternalRiskFactor]' value='[tKlsFrame10Min].[bMaternalRiskFactor]' />
+          <map key='[bObstetricalRiskFactor]' value='[tKlsFrame10Min].[bObstetricalRiskFactor]' />
+          <map key='[bTachycardia]' value='[tKlsFrame10Min].[bTachycardia]' />
+          <map key='[bTerminalEvent]' value='[tKlsFrame10Min].[bTerminalEvent]' />
+          <map key='[m_ExecutionDt]' value='[tKlsFrame10Min].[m_ExecutionDt]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Id]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>Id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CaseID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CaseID]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>CaseID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CaseFrameSeqID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CaseFrameSeqID]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>CaseFrameSeqID</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FrameStartDateTime</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[FrameStartDateTime]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FrameStartDateTime</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2'>true</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FrameEndDateTime</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[FrameEndDateTime]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FrameEndDateTime</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2'>true</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Duration</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Duration]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>Duration</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>100</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FHRBaselineBPM</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[FHRBaselineBPM]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FHRBaselineBPM</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FHRVariabilityBPM</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[FHRVariabilityBPM]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FHRVariabilityBPM</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NumFHRAccelerations</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[NumFHRAccelerations]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>NumFHRAccelerations</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FHRThreshold</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[FHRThreshold]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FHRThreshold</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UABaseline</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[UABaseline]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>UABaseline</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NumContractions</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[NumContractions]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>NumContractions</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AvgTimePerContractionSec</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[AvgTimePerContractionSec]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>AvgTimePerContractionSec</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalTimeContractionSec</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[TotalTimeContractionSec]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>TotalTimeContractionSec</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalTimeRelaxationSec</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[TotalTimeRelaxationSec]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>TotalTimeRelaxationSec</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>URRatio</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[URRatio]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>URRatio</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DECIMAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UAThreshold</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[UAThreshold]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>UAThreshold</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NumFHRLateRecovery</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[NumFHRLateRecovery]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>NumFHRLateRecovery</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NumFHROvershoot</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[NumFHROvershoot]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>NumFHROvershoot</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bTachycardia</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[bTachycardia]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>bTachycardia</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bBradycardia</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[bBradycardia]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>bBradycardia</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bMaternalRiskFactor</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[bMaternalRiskFactor]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>bMaternalRiskFactor</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bFetalRiskFactor</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[bFetalRiskFactor]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>bFetalRiskFactor</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bObstetricalRiskFactor</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[bObstetricalRiskFactor]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>bObstetricalRiskFactor</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bTerminalEvent</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[bTerminalEvent]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>bTerminalEvent</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRIExcessiveUA</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FRIExcessiveUA]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRIExcessiveUA</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRIAccelerations</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FRIAccelerations]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRIAccelerations</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRIFhrBaseline</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FRIFhrBaseline]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRIFhrBaseline</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRIFhrVariability</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FRIFhrVariability]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRIFhrVariability</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRILateRecovery</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FRILateRecovery]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRILateRecovery</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRIMaternalRiskFactor</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FRIMaternalRiskFactor]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRIMaternalRiskFactor</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRIObstetricalRiskFactor</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FRIObstetricalRiskFactor]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRIObstetricalRiskFactor</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRIFetalRiskFactor</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FRIFetalRiskFactor]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRIFetalRiskFactor</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRI</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[FRI]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRI</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>6</precision>
+            <scale>3</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DECIMAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FRI_Calculated</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[FRI_Calculated]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>FRI_Calculated</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <scale>6</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IsQuality</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[IsQuality]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>IsQuality</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>m_ExecutionDt</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[m_ExecutionDt]</local-name>
+            <parent-name>[tKlsFrame10Min]</parent-name>
+            <remote-alias>m_ExecutionDt</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2'>true</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CaseID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CaseID (tKlsSample_Pivot)]</local-name>
+            <parent-name>[tKlsSample_Pivot]</parent-name>
+            <remote-alias>CaseID</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CaseFrameSeqID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CaseFrameSeqID (tKlsSample_Pivot)]</local-name>
+            <parent-name>[tKlsSample_Pivot]</parent-name>
+            <remote-alias>CaseFrameSeqID</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SeqID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[SeqID]</local-name>
+            <parent-name>[tKlsSample_Pivot]</parent-name>
+            <remote-alias>SeqID</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SampleDateTime</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[SampleDateTime]</local-name>
+            <parent-name>[tKlsSample_Pivot]</parent-name>
+            <remote-alias>SampleDateTime</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2'>true</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UA</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[UA]</local-name>
+            <parent-name>[tKlsSample_Pivot]</parent-name>
+            <remote-alias>UA</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HR</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[HR]</local-name>
+            <parent-name>[tKlsSample_Pivot]</parent-name>
+            <remote-alias>HR</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HR2</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[HR2]</local-name>
+            <parent-name>[tKlsSample_Pivot]</parent-name>
+            <remote-alias>HR2</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MHR</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[MHR]</local-name>
+            <parent-name>[tKlsSample_Pivot]</parent-name>
+            <remote-alias>MHR</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>m_ExecutionDt</remote-name>
+            <remote-type>1</remote-type>
+            <remote-alias>m_ExecutionDt</remote-alias>
+            <ordinal>47</ordinal>
+            <aggregation>Count</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;datetimeoffset&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DEFAULT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Avg Time Per Contraction Sec' datatype='integer' name='[AvgTimePerContractionSec]' role='measure' type='quantitative' />
+      <column caption='CaseFrameSeqID (tKlsSample Pivot)' datatype='integer' name='[CaseFrameSeqID (tKlsSample_Pivot)]' role='dimension' type='ordinal' />
+      <column caption='Case Frame Seq ID' datatype='integer' name='[CaseFrameSeqID]' role='dimension' type='ordinal' />
+      <column caption='CaseID (tKlsSample Pivot)' datatype='integer' name='[CaseID (tKlsSample_Pivot)]' role='dimension' type='ordinal' />
+      <column caption='Case ID' datatype='integer' name='[CaseID]' role='dimension' type='ordinal' />
+      <column caption='FHR Baseline BPM' datatype='integer' name='[FHRBaselineBPM]' role='measure' type='quantitative' />
+      <column caption='FHR Variability BPM' datatype='integer' name='[FHRVariabilityBPM]' role='measure' type='quantitative' />
+      <column caption='FRI Accelerations' datatype='boolean' name='[FRIAccelerations]' role='dimension' type='nominal' />
+      <column caption='FRI Excessive UA' datatype='boolean' name='[FRIExcessiveUA]' role='dimension' type='nominal' />
+      <column caption='FRI Fetal Risk Factor' datatype='boolean' name='[FRIFetalRiskFactor]' role='dimension' type='nominal' />
+      <column caption='FRI Fhr Baseline' datatype='boolean' name='[FRIFhrBaseline]' role='dimension' type='nominal' />
+      <column caption='FRI Fhr Variability' datatype='boolean' name='[FRIFhrVariability]' role='dimension' type='nominal' />
+      <column caption='FRI Late Recovery' datatype='boolean' name='[FRILateRecovery]' role='dimension' type='nominal' />
+      <column caption='FRI Maternal Risk Factor' datatype='boolean' name='[FRIMaternalRiskFactor]' role='dimension' type='nominal' />
+      <column caption='FRI Obstetrical Risk Factor' datatype='boolean' name='[FRIObstetricalRiskFactor]' role='dimension' type='nominal' />
+      <column caption='FRI Calculated' datatype='real' name='[FRI_Calculated]' role='measure' type='quantitative' />
+      <column caption='Frame End Date Time' datatype='datetime' name='[FrameEndDateTime]' role='dimension' type='ordinal' />
+      <column caption='Frame Start Date Time' datatype='datetime' name='[FrameStartDateTime]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Id]' role='dimension' type='ordinal' />
+      <column caption='Is Quality' datatype='boolean' name='[IsQuality]' role='dimension' type='nominal' />
+      <column caption='Num Contractions' datatype='integer' name='[NumContractions]' role='measure' type='quantitative' />
+      <column caption='Num FHR Accelerations' datatype='integer' name='[NumFHRAccelerations]' role='measure' type='quantitative' />
+      <column caption='Num FHR Late Recovery' datatype='integer' name='[NumFHRLateRecovery]' role='measure' type='quantitative' />
+      <column caption='Num FHR Overshoot' datatype='boolean' name='[NumFHROvershoot]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Sample Date Time' datatype='datetime' name='[SampleDateTime]' role='dimension' type='ordinal' />
+      <column caption='Seq ID' datatype='integer' name='[SeqID]' role='dimension' type='ordinal' />
+      <column caption='Total Time Contraction Sec' datatype='integer' name='[TotalTimeContractionSec]' role='measure' type='quantitative' />
+      <column caption='Total Time Relaxation Sec' datatype='integer' name='[TotalTimeRelaxationSec]' role='measure' type='quantitative' />
+      <column caption='UA Baseline' datatype='integer' name='[UABaseline]' role='measure' type='quantitative' />
+      <column caption='UR Ratio' datatype='real' name='[URRatio]' role='measure' type='quantitative' />
+      <column caption='B Bradycardia' datatype='boolean' name='[bBradycardia]' role='dimension' type='nominal' />
+      <column caption='B Fetal Risk Factor' datatype='boolean' name='[bFetalRiskFactor]' role='dimension' type='nominal' />
+      <column caption='B Maternal Risk Factor' datatype='boolean' name='[bMaternalRiskFactor]' role='dimension' type='nominal' />
+      <column caption='B Obstetrical Risk Factor' datatype='boolean' name='[bObstetricalRiskFactor]' role='dimension' type='nominal' />
+      <column caption='B Tachycardia' datatype='boolean' name='[bTachycardia]' role='dimension' type='nominal' />
+      <column caption='B Terminal Event' datatype='boolean' name='[bTerminalEvent]' role='dimension' type='nominal' />
+      <column caption='m ExecutionDt' datatype='datetime' name='[m_ExecutionDt]' role='dimension' type='ordinal' />
+      <column-instance column='[FRIExcessiveUA]' derivation='None' name='[none:FRIExcessiveUA:nk]' pivot='key' type='nominal' />
+      <column-instance column='[FRIFhrBaseline]' derivation='None' name='[none:FRIFhrBaseline:nk]' pivot='key' type='nominal' />
+      <column-instance column='[FRILateRecovery]' derivation='None' name='[none:FRILateRecovery:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.707711' measure-ordering='alphabetic' measure-percentage='0.292289' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:FRILateRecovery:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>true</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>false</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:FRIExcessiveUA:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>true</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>false</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:FRIFhrBaseline:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>true</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>false</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Case Trace'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='tKlsFrame10Min (ana.tKlsFrame10Min)+ (KeepingLaborSafePoC)' name='federated.1ko9nz11vx7u6b102tjtj0vil2sx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ko9nz11vx7u6b102tjtj0vil2sx'>
+            <column caption='Case Frame Seq ID' datatype='integer' name='[CaseFrameSeqID]' role='dimension' type='ordinal' />
+            <column caption='Case ID' datatype='integer' name='[CaseID]' role='dimension' type='ordinal' />
+            <column caption='FHR Baseline BPM' datatype='integer' name='[FHRBaselineBPM]' role='measure' type='quantitative' />
+            <column caption='FHR Variability BPM' datatype='integer' name='[FHRVariabilityBPM]' role='measure' type='quantitative' />
+            <column caption='FRI Fetal Risk Factor' datatype='boolean' name='[FRIFetalRiskFactor]' role='dimension' type='nominal' />
+            <column caption='FRI Fhr Baseline' datatype='boolean' name='[FRIFhrBaseline]' role='dimension' type='nominal' />
+            <column caption='FRI Maternal Risk Factor' datatype='boolean' name='[FRIMaternalRiskFactor]' role='dimension' type='nominal' />
+            <column caption='FRI Obstetrical Risk Factor' datatype='boolean' name='[FRIObstetricalRiskFactor]' role='dimension' type='nominal' />
+            <column datatype='real' name='[FRI]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[HR2]' role='measure' type='quantitative' />
+            <column caption='Is Quality' datatype='boolean' name='[IsQuality]' role='dimension' type='nominal' />
+            <column caption='Num Contractions' datatype='integer' name='[NumContractions]' role='measure' type='quantitative' />
+            <column caption='Sample Date Time' datatype='datetime' name='[SampleDateTime]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[UA]' role='measure' type='quantitative' />
+            <column-instance column='[CaseFrameSeqID]' derivation='Attribute' name='[attr:CaseFrameSeqID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[CaseID]' derivation='Attribute' name='[attr:CaseID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[IsQuality]' derivation='Attribute' name='[attr:IsQuality:nk]' pivot='key' type='nominal' />
+            <column-instance column='[CaseID]' derivation='None' name='[none:CaseID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[FHRBaselineBPM]' derivation='None' name='[none:FHRBaselineBPM:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[FRIFetalRiskFactor]' derivation='None' name='[none:FRIFetalRiskFactor:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FRIFhrBaseline]' derivation='None' name='[none:FRIFhrBaseline:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FRIMaternalRiskFactor]' derivation='None' name='[none:FRIMaternalRiskFactor:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FRIObstetricalRiskFactor]' derivation='None' name='[none:FRIObstetricalRiskFactor:nk]' pivot='key' type='nominal' />
+            <column-instance column='[HR2]' derivation='None' name='[none:HR2:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[SampleDateTime]' derivation='None' name='[none:SampleDateTime:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[UA]' derivation='None' name='[none:UA:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[FHRBaselineBPM]' derivation='Sum' name='[sum:FHRBaselineBPM:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[FHRVariabilityBPM]' derivation='Sum' name='[sum:FHRVariabilityBPM:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[FRI]' derivation='Sum' name='[sum:FRI:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[NumContractions]' derivation='Sum' name='[sum:NumContractions:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[:Measure Names]'>
+            <groupfilter function='level-members' level='[:Measure Names]' />
+          </filter>
+          <filter class='categorical' column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]'>
+            <groupfilter function='member' level='[none:CaseID:ok]' member='32195641' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:SampleDateTime:qk]' included-values='in-range'>
+            <min>#2012-01-01 00:00:00#</min>
+            <max>#2017-06-15 19:19:00.750#</max>
+          </filter>
+          <slices>
+            <column>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:SampleDateTime:qk]</column>
+            <column>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]</column>
+            <column>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:UA:qk]' field-type='quantitative' max='103' min='-3' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FRI:qk]' field-type='quantitative' max='1.05' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:HR2:qk]' field-type='quantitative' max='210' min='90' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FHRBaselineBPM:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='4' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:NumContractions:qk]' max='6' min='0' num-steps='5' palette='red_green_diverging_10_0' reverse='true' symmetric='false' type='interpolated' />
+            <encoding attr='color' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FRI:qk]' max='1.0' min='0.0' num-steps='3' palette='tableau-map-temperatur' reverse='true' symmetric='false' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseID:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseFrameSeqID:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:HR2:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIFhrBaseline:nk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseID:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseFrameSeqID:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FHRBaselineBPM:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FHRVariabilityBPM:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:IsQuality:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+                <format attr='size' value='0.20790055394172668' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:UA:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:NumContractions:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseID:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseFrameSeqID:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FHRBaselineBPM:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FHRVariabilityBPM:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:IsQuality:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+                <format attr='size' value='0.20790055394172668' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FRI:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FRI:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseID:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseFrameSeqID:qk]' />
+              <lod column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIMaternalRiskFactor:nk]' />
+              <lod column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIObstetricalRiskFactor:nk]' />
+              <lod column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIFetalRiskFactor:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='5' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FHRBaselineBPM:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseID:qk]' />
+              <tooltip column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[attr:CaseFrameSeqID:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+                <format attr='size' value='0.0099999997764825821' />
+                <format attr='mark-color' value='#000000' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:HR2:qk] + ([federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FHRBaselineBPM:qk] + ([federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:UA:qk] + [federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FRI:qk])))</rows>
+        <cols>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:SampleDateTime:qk]</cols>
+      </table>
+      <simple-id uuid='{C09A818F-6486-4DB5-9100-3B23C68D36EB}' />
+    </worksheet>
+    <worksheet name='Single Trace'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='tKlsFrame10Min (ana.tKlsFrame10Min)+ (KeepingLaborSafePoC)' name='federated.1ko9nz11vx7u6b102tjtj0vil2sx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ko9nz11vx7u6b102tjtj0vil2sx'>
+            <column caption='Case Frame Seq ID' datatype='integer' name='[CaseFrameSeqID]' role='dimension' type='ordinal' />
+            <column caption='Case ID' datatype='integer' name='[CaseID]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[FHRThreshold]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[HR2]' role='measure' type='quantitative' />
+            <column caption='Sample Date Time' datatype='datetime' name='[SampleDateTime]' role='dimension' type='ordinal' />
+            <column-instance column='[CaseFrameSeqID]' derivation='None' name='[none:CaseFrameSeqID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[CaseID]' derivation='None' name='[none:CaseID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[HR2]' derivation='None' name='[none:HR2:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[SampleDateTime]' derivation='None' name='[none:SampleDateTime:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[FHRThreshold]' derivation='Sum' name='[sum:FHRThreshold:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseFrameSeqID:ok]'>
+            <groupfilter function='member' level='[none:CaseFrameSeqID:ok]' member='67' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]'>
+            <groupfilter function='member' level='[none:CaseID:ok]' member='42345870' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]</column>
+            <column>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseFrameSeqID:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FHRThreshold:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:HR2:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.44977900385856628' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FHRThreshold:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:HR2:qk] + [federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FHRThreshold:qk])</rows>
+        <cols>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:SampleDateTime:qk]</cols>
+      </table>
+      <simple-id uuid='{5675058B-D20D-46A0-980C-EEBA53371CE4}' />
+    </worksheet>
+    <worksheet name='TenMinute Components'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='tKlsFrame10Min (ana.tKlsFrame10Min)+ (KeepingLaborSafePoC)' name='federated.1ko9nz11vx7u6b102tjtj0vil2sx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ko9nz11vx7u6b102tjtj0vil2sx'>
+            <column caption='Case ID' datatype='integer' name='[CaseID]' role='dimension' type='ordinal' />
+            <column caption='FRI Accelerations' datatype='boolean' name='[FRIAccelerations]' role='dimension' type='nominal' />
+            <column caption='FRI Excessive UA' datatype='boolean' name='[FRIExcessiveUA]' role='dimension' type='nominal' />
+            <column caption='FRI Fhr Baseline' datatype='boolean' name='[FRIFhrBaseline]' role='dimension' type='nominal' />
+            <column caption='FRI Fhr Variability' datatype='boolean' name='[FRIFhrVariability]' role='dimension' type='nominal' />
+            <column caption='FRI Late Recovery' datatype='boolean' name='[FRILateRecovery]' role='dimension' type='nominal' />
+            <column datatype='real' name='[FRI]' role='measure' type='quantitative' />
+            <column caption='Frame Start Date Time' datatype='datetime' name='[FrameStartDateTime]' role='dimension' type='ordinal' />
+            <column-instance column='[CaseID]' derivation='None' name='[none:CaseID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[FRI]' derivation='None' name='[none:FRI:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[FRIAccelerations]' derivation='None' name='[none:FRIAccelerations:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FRIExcessiveUA]' derivation='None' name='[none:FRIExcessiveUA:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FRIFhrBaseline]' derivation='None' name='[none:FRIFhrBaseline:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FRIFhrVariability]' derivation='None' name='[none:FRIFhrVariability:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FRILateRecovery]' derivation='None' name='[none:FRILateRecovery:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FrameStartDateTime]' derivation='None' name='[none:FrameStartDateTime:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]'>
+            <groupfilter function='member' level='[none:CaseID:ok]' member='27034378' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIAccelerations:nk]' value='104' />
+            <format attr='width' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIExcessiveUA:nk]' value='108' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRI:qk]' palette='tableau-map-temperatur' reverse='true' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRI:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIAccelerations:nk] / ([federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIExcessiveUA:nk] / ([federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIFhrBaseline:nk] / ([federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIFhrVariability:nk] / [federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRILateRecovery:nk]))))</rows>
+        <cols>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FrameStartDateTime:qk]</cols>
+      </table>
+      <simple-id uuid='{D80E482D-6656-4862-A149-CB36B2140F63}' />
+    </worksheet>
+    <worksheet name='TenMinute FRI'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='tKlsFrame10Min (ana.tKlsFrame10Min)+ (KeepingLaborSafePoC)' name='federated.1ko9nz11vx7u6b102tjtj0vil2sx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ko9nz11vx7u6b102tjtj0vil2sx'>
+            <column caption='Case ID' datatype='integer' name='[CaseID]' role='dimension' type='ordinal' />
+            <column datatype='real' name='[FRI]' role='measure' type='quantitative' />
+            <column caption='Frame Start Date Time' datatype='datetime' name='[FrameStartDateTime]' role='dimension' type='ordinal' />
+            <column-instance column='[CaseID]' derivation='None' name='[none:CaseID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[FRI]' derivation='None' name='[none:FRI:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[FrameStartDateTime]' derivation='None' name='[none:FrameStartDateTime:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]'>
+            <groupfilter function='member' level='[none:CaseID:ok]' member='40886248' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.5' field='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRI:qk]' max='1.0' min='0.0' num-steps='3' palette='tableau-map-temperatur' reverse='true' symmetric='false' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRI:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='shape' value=':filled/square' />
+                <format attr='size' value='1.5052486658096313' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRI:qk]</rows>
+        <cols>[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FrameStartDateTime:qk]</cols>
+      </table>
+      <simple-id uuid='{C891512B-7AB1-46FF-B140-CF927651ED6F}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Case Trace'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:SampleDateTime:qk]' show-domain='false' show-null-ctrls='false' type='filter' values='relevant' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='radiolist' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]' type='filter' />
+            <card pane-specification-id='2' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRIFhrBaseline:nk]' type='color' />
+            <card pane-specification-id='3' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:NumContractions:qk]' type='color' />
+            <card pane-specification-id='4' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[sum:FRI:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{56D2CB1A-C54B-4DF0-86EB-C29DA821F5AC}' />
+    </window>
+    <window class='worksheet' name='TenMinute Components'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='radiolist' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRI:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{90DA4AAB-7EE2-4808-8686-89BAA119001F}' />
+    </window>
+    <window class='worksheet' name='TenMinute FRI'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='radiolist' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:FRI:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E912D5D8-5E6B-4259-BD57-B08BA35294EE}' />
+    </window>
+    <window class='worksheet' name='Single Trace'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='radiolist' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseID:ok]' type='filter' />
+            <card mode='radiolist' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[none:CaseFrameSeqID:ok]' type='filter' values='relevant' />
+            <card pane-specification-id='1' param='[federated.1ko9nz11vx7u6b102tjtj0vil2sx].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3C375498-295D-4436-B376-565302EDDF60}' />
+    </window>
+  </windows>
+</workbook>

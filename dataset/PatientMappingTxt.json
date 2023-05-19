@@ -1,0 +1,23 @@
+{
+	"name": "PatientMappingTxt",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "klsBlobDataflow",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "patientmapping",
+				"container": "drop"
+			},
+			"columnDelimiter": "\t",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

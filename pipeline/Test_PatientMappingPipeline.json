@@ -1,0 +1,184 @@
+{
+	"name": "Test_PatientMappingPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy Patient Mapping Data to Stage",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Truncate Patient Mapping Stg",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.txt",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MRN",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MRN",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "File",
+									"type": "String"
+								},
+								"sink": {
+									"name": "File",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Mother_Admit_Tm",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Mother_Admit_Tm",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DELIVERY_TIME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DELIVERY_TIME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "GUID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "GUID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INPATIENT_DATA_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INPATIENT_DATA_ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "<RENAME TO> INPATIENT_DATA_ID plus *csv filename",
+									"type": "String"
+								},
+								"sink": {
+									"name": "filename",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "PatientMappingTxt",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PatientMappingStg",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "ArchiveBlobs",
+				"description": "{}",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Copy Patient Mapping Data to Stage",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-48.eastus.logic.azure.com:443/workflows/8059631f50b74181bf98c0bf693bb37f/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ock-GVCBpbbiKFPpQtls-YEaSkFPMM_FoAGfV88C7q8",
+					"method": "POST",
+					"body": {
+						"value": "@concat('{', '}')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Truncate Patient Mapping Stg",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[stg].[uspTruncatePatientMappingStage]"
+				},
+				"linkedServiceName": {
+					"referenceName": "KlsAzureSqlLinkedService",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"name": "KLSSampleCopyBlobEventTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/drop/",
+			"scope": "/subscriptions/a4c04f97-aa54-4d01-9faa-f660f05e2dc7/resourceGroups/fri_poc/providers/Microsoft.Storage/storageAccounts/fripoc",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

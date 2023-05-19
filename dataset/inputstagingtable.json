@@ -1,0 +1,17 @@
+{
+	"name": "inputstagingtable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "KlsAzureSqlLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stg",
+			"table": "tKlsInputDataflow"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
